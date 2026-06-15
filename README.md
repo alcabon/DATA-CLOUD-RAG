@@ -260,3 +260,5 @@ This is by design: Long Text Areas are stored off-row (as BLOBs in a separate st
 - still misses synonyms, paraphrases, and multilingual variants
 
 So the gap that RAG fills is actually two separate gaps stacked on top of each other: first the **structural gap** (can't filter the field at all in SOQL), then the **semantic gap** (even if you could, lexical matching wouldn't find the right content). That's why the chunking + vector index approach isn't just a nice-to-have — it's the only viable path for content retrieval on Knowledge article bodies at scale.
+
+<img width="1472" height="960" alt="image" src="https://github.com/user-attachments/assets/fe77e72d-9fc7-44f4-b48e-d1fa7a8d3848" />
