@@ -277,3 +277,17 @@ Oui, ce sont les deux dominantes — mais il en existe d'autres. Voici la carte 
 **MMR** est le cas à part intéressant : ce n'est pas une métrique de base mais une couche de re-ranking appliquée après la recherche cosine/dot. Dans Agentforce, quand on configure le retriever pour retourner `top_k=10` chunks et n'en injecter que 3 dans le prompt, le re-ranker utilise MMR pour choisir les 3 les plus pertinents ET les plus diversifiés — ce qui évite d'envoyer au LLM trois extraits qui disent exactement la même chose avec des mots légèrement différents.
 
 **Jaccard et Hamming** sont des cas ultra-spécialisés : Jaccard apparaît dans les architectures hybrid search qui combinent BM25 (sparse) + dense embeddings, et Hamming pour les embeddings binaires quantifiés utilisés quand la mémoire est contrainte (recherche sur device, très grandes bases).
+
+---
+
+<img width="1472" height="1720" alt="image" src="https://github.com/user-attachments/assets/4e34b8da-bf37-4544-a3a0-c360550cf017" />
+
+L'arbre se lit en trois temps.
+
+La question racine est toujours la même : **les vecteurs sont-ils L2-normalisés ?** C'est le seul critère qui détermine si dot product est mathématiquement sûr ou non. Si tu ne sais pas, la réponse par défaut est "non / inconnu" — et tu prends cosine sans hésiter.
+
+La branche gauche (non normalisé) introduit une deuxième question sur la variété des tailles de documents. Si tes articles Knowledge vont du paragraphe unique à la note de 50 pages, cosine est obligatoire — c'est exactement le cas typique d'un Knowledge Salesforce. Si les tailles sont homogènes et que la performance est critique, l'option est de normaliser toi-même les vecteurs avant l'indexation, puis de basculer sur dot product — qui devient alors strictement identique à cosine mais sans la division.
+
+La branche droite (normalisé) suit la même logique mais part du bon côté : les deux métriques donnent les mêmes résultats, donc tu choisis dot product uniquement si tu as un volume de chunks suffisamment large pour que le gain de calcul soit mesurable en pratique (typiquement plusieurs dizaines de millions de vecteurs).
+
+Le bandeau du bas rappelle les conventions par plateforme, qui ne suivent pas toutes le même défaut : Data Cloud impose cosine pour Ada-002, pgvector utilise L2 par défaut (opérateur `<->`) ce qui surprend souvent, FAISS appelle le dot product `IndexFlatIP` (Inner Product), et OpenAI `text-embedding-3` est normalisé donc dot product y est équivalent à cosine et légèrement préféré.
