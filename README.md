@@ -360,3 +360,20 @@ LIMIT 200
 Puis passer ce sample dans la fonction ci-dessus. Si `all_normalized = False`, le champ `metric_to_use` te dit directement quelle métrique configurer dans ton index — sans avoir à lire la documentation du modèle.
 
 C'est particulièrement utile quand le modèle d'embedding a été changé entre deux releases de l'org, ou quand le pipeline de chunking applique (ou non) une étape de normalisation custom avant l'indexation.
+
+---
+
+<img width="1472" height="1200" alt="image" src="https://github.com/user-attachments/assets/df0e0671-2c14-48cd-8aaf-1217e8fcde10" />
+
+
+Absolument — tu soulèves le point clé. L'ingestion Data Cloud coûte en **Data Service Credits** à chaque vectorisation, donc refaire un index complet juste pour changer de métrique est économiquement inacceptable.
+
+La stratégie rationnelle est : **échantillonner petit → vérifier hors Salesforce → décider une fois → ingérer une seule fois**.Les chiffres sont éloquents. Voici la stratégie complète.## Ce que les chiffres démontrent
+
+**385 vecteurs suffisent** pour une population de 1 million de chunks ou plus, avec une confiance à 95% et une marge d'erreur de ±5%. C'est la convergence statistique de la loi des grands nombres — au-delà de ~400 observations, augmenter l'échantillon n'apporte presque rien sur une propriété binaire (normalisé / non normalisé). L'empreinte mémoire de ces 385 vecteurs à 1536 dimensions en float32 est de **2.3 MB**.
+
+**La vérification hors Salesforce coûte essentiellement zéro.** Tu vectorises le sample via l'API du modèle (quelques centimes de tokens OpenAI, ou gratuit en local), tu calcules les normes avec numpy en une seconde, et tu as ta réponse définitive avant d'engager un seul Data Service Credit d'ingestion.
+
+**Le gain de dot product sur cosine n'est mesurable qu'au-delà de ~10M chunks.** En dessous, la différence est dans le bruit : cosine ajoute deux calculs de norme et une division par paire, soit ~3 000 flops supplémentaires par comparaison — imperceptible sur un ANN qui n'évalue qu'une fraction des vecteurs. Au-delà de 10M vecteurs, l'overhead s'accumule à ~30 Gflops par requête et le gain réel sur la latence de recherche devient mesurable (typiquement 10–30% selon le moteur HNSW ou IVF).
+
+**La règle pratique** est donc : échantillonner → vérifier → décider une fois. Si tu es sous 10M chunks, même si les vecteurs sont normalisés, rester sur cosine est la décision correcte — les résultats sont identiques et tu évites tout risque de régression si le modèle change un jour.
