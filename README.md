@@ -262,3 +262,18 @@ This is by design: Long Text Areas are stored off-row (as BLOBs in a separate st
 So the gap that RAG fills is actually two separate gaps stacked on top of each other: first the **structural gap** (can't filter the field at all in SOQL), then the **semantic gap** (even if you could, lexical matching wouldn't find the right content). That's why the chunking + vector index approach isn't just a nice-to-have — it's the only viable path for content retrieval on Knowledge article bodies at scale.
 
 <img width="1472" height="960" alt="image" src="https://github.com/user-attachments/assets/fe77e72d-9fc7-44f4-b48e-d1fa7a8d3848" />
+
+---
+
+<img width="1472" height="2436" alt="image" src="https://github.com/user-attachments/assets/880b4a4b-1f24-468e-ba9f-713c41904774" />
+
+
+Oui, ce sont les deux dominantes — mais il en existe d'autres. Voici la carte complète.En pratique dans l'écosystème RAG, la réalité est la suivante.
+
+**Cosine et dot product couvrent ~95% des cas** parce que les embedding models modernes (Ada-002, les modèles Salesforce internes, Cohere, etc.) sont tous entraînés et optimisés pour l'une ou l'autre — c'est documenté dans leur model card. Utiliser L2 sur ces modèles donne des résultats sous-optimaux car l'espace vectoriel n'a pas été structuré pour cette métrique.
+
+**L2 euclidienne** est surtout pertinente pour des embeddings d'images ou de clustering, où la distance géométrique absolue a un sens physique. Sur du texte haute dimension (1536d), elle souffre du "curse of dimensionality" — toutes les distances tendent à converger, ce qui écrase les différences de pertinence.
+
+**MMR** est le cas à part intéressant : ce n'est pas une métrique de base mais une couche de re-ranking appliquée après la recherche cosine/dot. Dans Agentforce, quand on configure le retriever pour retourner `top_k=10` chunks et n'en injecter que 3 dans le prompt, le re-ranker utilise MMR pour choisir les 3 les plus pertinents ET les plus diversifiés — ce qui évite d'envoyer au LLM trois extraits qui disent exactement la même chose avec des mots légèrement différents.
+
+**Jaccard et Hamming** sont des cas ultra-spécialisés : Jaccard apparaît dans les architectures hybrid search qui combinent BM25 (sparse) + dense embeddings, et Hamming pour les embeddings binaires quantifiés utilisés quand la mémoire est contrainte (recherche sur device, très grandes bases).
