@@ -88,3 +88,61 @@ flowchart TB
   class L4 transient
 
 ```
+
+```mermaid
+flowchart TB
+
+  subgraph STREAM["Streaming Data Transform — continuous, picks up new/changed data"]
+    direction TB
+    S_SRC["Source object<br/>(single DLO)"]
+    S_OP{{"Reshape<br/>(filter, normalize, merge, split)"}}
+    S_TGT1["Target object 1"]
+    S_TGT2["Target object 2<br/>(optional, multiple targets)"]
+    S_SRC --> S_OP
+    S_OP --> S_TGT1
+    S_OP --> S_TGT2
+  end
+
+  subgraph STREAM_UC["Streaming use cases"]
+    direction LR
+    UC1["Normalize with UNION<br/>denormalized to normalized"] ~~~ UC2["Merge multiple streams<br/>same keys, avoid dup in DMO"] ~~~ UC3["Split one stream<br/>profile + engagement to 2 DLOs"]
+  end
+
+  subgraph BATCH["Batch Data Transform — node canvas, repeatable / scheduled"]
+    direction TB
+    B_IN1["Input node: Case records<br/>(DLO)"]
+    B_IN2["Input node: Account records<br/>(DLO)"]
+    B_FILTER{{"Filter node<br/>escalated cases only"}}
+    B_JOIN{{"Join node<br/>fully qualified key (FQK)"}}
+    B_AGG{{"Aggregate node<br/>roll up to account level"}}
+    B_TRANSFORM{{"Transform node<br/>concat, standardize, sentiment"}}
+    B_UPDATE{{"Update node<br/>swap values on key match"}}
+    B_OUT["Output node<br/>(DLO — must match DLO inputs)"]
+
+    B_IN1 --> B_FILTER --> B_JOIN
+    B_IN2 --> B_JOIN
+    B_JOIN --> B_AGG --> B_TRANSFORM --> B_UPDATE --> B_OUT
+  end
+
+  subgraph LEGEND[" Legend "]
+    direction LR
+    LG1["DLO-type object"] ~~~ LG2["DMO-type object"] ~~~ LG3["Transform node (operation)"] ~~~ LG4["Use case example"]
+  end
+
+  STREAM -. illustrated by .-> STREAM_UC
+  STREAM ~~~ LEGEND
+  BATCH ~~~ LEGEND
+
+  classDef dlo fill:#1B3A5C,color:#ffffff,stroke:#2E75B6,stroke-width:1px
+  classDef dmo fill:#EAF1F8,color:#1B3A5C,stroke:#2E75B6,stroke-width:1px,stroke-dasharray: 4 3
+  classDef op fill:#C9821E,color:#ffffff,stroke:#8a5a14,stroke-width:1px
+  classDef usecase fill:#5B8FB9,color:#ffffff,stroke:#2E75B6,stroke-width:1px
+
+  class S_SRC,S_TGT1,S_TGT2,B_IN1,B_IN2,B_OUT dlo
+  class S_OP,B_FILTER,B_JOIN,B_AGG,B_TRANSFORM,B_UPDATE op
+  class UC1,UC2,UC3 usecase
+  class LG1 dlo
+  class LG2 dmo
+  class LG3 op
+  class LG4 usecase
+```
