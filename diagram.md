@@ -2,14 +2,6 @@
 ```mermaid
 flowchart TB
 
-  subgraph LEGEND[" Legend "]
-    direction LR
-    L1["Materialized<br/>(real storage)"]
-    L2["Hybrid<br/>(view over materialized data)"]
-    L3["Virtual view<br/>(no storage)"]
-    L4["Transient<br/>(momentary)"]
-  end
-
   subgraph SOURCES["Connectors / Streams"]
     DSO["DSO<br/>(transient schema)"]
   end
@@ -47,6 +39,11 @@ flowchart TB
     SEG["Segment Membership Table"]
   end
 
+  subgraph LEGEND[" Legend "]
+    direction LR
+    L1["Materialized<br/>(real storage)"] ~~~ L2["Hybrid<br/>(view over materialized data)"] ~~~ L3["Virtual view<br/>(no storage)"] ~~~ L4["Transient<br/>(momentary)"]
+  end
+
   DSO -. ingest .-> DLO_CRM
   DSO -. ingest .-> DLO_S3
   DSO -. ingest .-> DLO_SVC
@@ -73,6 +70,9 @@ flowchart TB
   UNIFIED_IND -->|segment publish| SEG
   CIO -->|segment criteria| SEG
 
+  SEG ~~~ LEGEND
+  IDMO ~~~ LEGEND
+
   classDef materialized fill:#1B3A5C,color:#ffffff,stroke:#2E75B6,stroke-width:1px
   classDef hybrid fill:#5B8FB9,color:#ffffff,stroke:#2E75B6,stroke-width:1px,stroke-dasharray: 4 3
   classDef virtual fill:#EAF1F8,color:#1B3A5C,stroke:#2E75B6,stroke-width:1px,stroke-dasharray: 4 3
@@ -86,4 +86,5 @@ flowchart TB
   class L2 hybrid
   class L3 virtual
   class L4 transient
+
 ```
