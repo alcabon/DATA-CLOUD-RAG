@@ -1,0 +1,157 @@
+<svg viewBox="0 0 1620 1560" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+<rect x="0" y="0" width="1620" height="1560" fill="#ffffff"/>
+
+<defs>
+  <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="7" refY="5" orient="auto">
+    <path d="M0,0 L10,5 L0,10 Z" fill="#334155"/>
+  </marker>
+</defs>
+
+<text x="810.0" y="38.0" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#0f172a">
+<tspan x="810.0" dy="0">Vector search + LLM : Salesforce Einstein  vs  Stack locale (Ollama)</tspan>
+</text>
+<rect x="210" y="64" width="560" height="38" rx="8" ry="8" fill="#0176D3" stroke="#0176D3" stroke-width="0"/>
+<text x="490.0" y="84.0" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="white">
+<tspan x="490.0" dy="0">SALESFORCE EINSTEIN / DATA CLOUD / AGENTFORCE</tspan>
+</text>
+<rect x="830" y="64" width="560" height="38" rx="8" ry="8" fill="#15803d" stroke="#15803d" stroke-width="0"/>
+<text x="1110.0" y="84.0" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="white">
+<tspan x="1110.0" dy="0">STACK LOCALE ÉQUIVALENTE (Ollama)</tspan>
+</text>
+<rect x="210" y="110" width="560" height="76" rx="12" ry="12" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
+<text x="490.0" y="139.5" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15.5" font-weight="600" fill="#1f2937">
+<tspan x="490.0" dy="0">Requête utilisateur</tspan>
+<tspan x="490.0" dy="19">(langage naturel)</tspan>
+</text>
+<rect x="210" y="252" width="560" height="76" rx="12" ry="12" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+<text x="490.0" y="272.0" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15.5" font-weight="600" fill="#92400e">
+<tspan x="490.0" dy="0">[?] Modèle d'embedding propriétaire</tspan>
+<tspan x="490.0" dy="19">(Einstein Trust Layer)</tspan>
+<tspan x="490.0" dy="19">nom exact non communiqué</tspan>
+</text>
+<line x1="490.0" y1="186" x2="490.0" y2="252" stroke="#334155" stroke-width="2.6" marker-end="url(#arrowhead)"/>
+<rect x="210" y="394" width="560" height="76" rx="12" ry="12" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
+<text x="490.0" y="433.0" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15.5" font-weight="600" fill="#1f2937">
+<tspan x="490.0" dy="0">Vecteur de requête</tspan>
+</text>
+<line x1="490.0" y1="328" x2="490.0" y2="394" stroke="#334155" stroke-width="2.6" marker-end="url(#arrowhead)"/>
+<rect x="210" y="550" width="560" height="62" rx="10" ry="10" fill="#dbeafe" stroke="#2563eb" stroke-width="2.5"/>
+<ellipse cx="490.0" cy="550" rx="278.0" ry="14" fill="#dbeafe" stroke="#2563eb" stroke-width="2.5"/>
+<path d="M 216 598 Q 490.0 608 764 598" fill="none" stroke="#2563eb" stroke-width="2.0" opacity="0.6"/>
+<text x="490.0" y="575.0" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15.5" font-weight="600" fill="#1e3a8a">
+<tspan x="490.0" dy="0">DATA CLOUD — Base vectorielle</tspan>
+</text>
+<line x1="490.0" y1="470" x2="490.0" y2="536" stroke="#334155" stroke-width="2.6" marker-end="url(#arrowhead)"/>
+<rect x="210" y="678" width="560" height="76" rx="12" ry="12" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
+<text x="490.0" y="707.5" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15.5" font-weight="600" fill="#1f2937">
+<tspan x="490.0" dy="0">Chunks pertinents</tspan>
+<tspan x="490.0" dy="19">+ citations sources</tspan>
+</text>
+<line x1="490.0" y1="612" x2="490.0" y2="678" stroke="#334155" stroke-width="2.6" marker-end="url(#arrowhead)"/>
+<rect x="210" y="820" width="560" height="76" rx="12" ry="12" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+<text x="490.0" y="840.0" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15.5" font-weight="600" fill="#92400e">
+<tspan x="490.0" dy="0">[?] Atlas Reasoning Engine</tspan>
+<tspan x="490.0" dy="19">LLM interne spécialisé</tspan>
+<tspan x="490.0" dy="19">(intention, classification, planning)</tspan>
+</text>
+<line x1="490.0" y1="754" x2="490.0" y2="820" stroke="#334155" stroke-width="2.6" marker-end="url(#arrowhead)"/>
+<rect x="210" y="962" width="560" height="76" rx="12" ry="12" fill="#d1fae5" stroke="#059669" stroke-width="2"/>
+<text x="490.0" y="972.5" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15.5" font-weight="600" fill="#065f46">
+<tspan x="490.0" dy="0">[OK] LLM génératif final</tspan>
+<tspan x="490.0" dy="19">Défaut : GPT-4o (OpenAI/Azure)</tspan>
+<tspan x="490.0" dy="19">Configurable : Claude Sonnet 4 (Bedrock),</tspan>
+<tspan x="490.0" dy="19">Gemini, ou BYOLLM</tspan>
+</text>
+<line x1="490.0" y1="896" x2="490.0" y2="962" stroke="#334155" stroke-width="2.6" marker-end="url(#arrowhead)"/>
+<rect x="210" y="1104" width="560" height="76" rx="12" ry="12" fill="#e5e7eb" stroke="#6b7280" stroke-width="2"/>
+<text x="490.0" y="1124.0" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15.5" font-weight="600" fill="#374151">
+<tspan x="490.0" dy="0">Einstein Trust Layer</tspan>
+<tspan x="490.0" dy="19">masquage PII, validation,</tspan>
+<tspan x="490.0" dy="19">anti-hallucination</tspan>
+</text>
+<line x1="490.0" y1="1038" x2="490.0" y2="1104" stroke="#334155" stroke-width="2.6" marker-end="url(#arrowhead)"/>
+<rect x="210" y="1246" width="560" height="76" rx="12" ry="12" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
+<text x="490.0" y="1275.5" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15.5" font-weight="600" fill="#1f2937">
+<tspan x="490.0" dy="0">Réponse finale</tspan>
+<tspan x="490.0" dy="19">+ sources citées</tspan>
+</text>
+<line x1="490.0" y1="1180" x2="490.0" y2="1246" stroke="#334155" stroke-width="2.6" marker-end="url(#arrowhead)"/>
+<rect x="830" y="110" width="560" height="76" rx="12" ry="12" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
+<text x="1110.0" y="139.5" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15.5" font-weight="600" fill="#1f2937">
+<tspan x="1110.0" dy="0">Requête utilisateur</tspan>
+<tspan x="1110.0" dy="19">(langage naturel)</tspan>
+</text>
+<rect x="830" y="252" width="560" height="76" rx="12" ry="12" fill="#d1fae5" stroke="#059669" stroke-width="2"/>
+<text x="1110.0" y="281.5" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15.5" font-weight="600" fill="#065f46">
+<tspan x="1110.0" dy="0">[OK] Modèle d'embedding open source</tspan>
+<tspan x="1110.0" dy="19">nomic-embed-text / bge / e5</tspan>
+</text>
+<line x1="1110.0" y1="186" x2="1110.0" y2="252" stroke="#334155" stroke-width="2.6" marker-end="url(#arrowhead)"/>
+<rect x="830" y="394" width="560" height="76" rx="12" ry="12" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
+<text x="1110.0" y="433.0" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15.5" font-weight="600" fill="#1f2937">
+<tspan x="1110.0" dy="0">Vecteur de requête</tspan>
+</text>
+<line x1="1110.0" y1="328" x2="1110.0" y2="394" stroke="#334155" stroke-width="2.6" marker-end="url(#arrowhead)"/>
+<rect x="830" y="550" width="560" height="62" rx="10" ry="10" fill="#dcfce7" stroke="#16a34a" stroke-width="2.5"/>
+<ellipse cx="1110.0" cy="550" rx="278.0" ry="14" fill="#dcfce7" stroke="#16a34a" stroke-width="2.5"/>
+<path d="M 836 598 Q 1110.0 608 1384 598" fill="none" stroke="#16a34a" stroke-width="2.0" opacity="0.6"/>
+<text x="1110.0" y="575.0" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15.5" font-weight="600" fill="#14532d">
+<tspan x="1110.0" dy="0">FAISS / Chroma / Qdrant</tspan>
+</text>
+<line x1="1110.0" y1="470" x2="1110.0" y2="536" stroke="#334155" stroke-width="2.6" marker-end="url(#arrowhead)"/>
+<rect x="830" y="678" width="560" height="76" rx="12" ry="12" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
+<text x="1110.0" y="717.0" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15.5" font-weight="600" fill="#1f2937">
+<tspan x="1110.0" dy="0">Chunks pertinents</tspan>
+</text>
+<line x1="1110.0" y1="612" x2="1110.0" y2="678" stroke="#334155" stroke-width="2.6" marker-end="url(#arrowhead)"/>
+<rect x="830" y="820" width="560" height="76" rx="12" ry="12" fill="#e5e7eb" stroke="#6b7280" stroke-width="2"/>
+<text x="1110.0" y="849.5" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15.5" font-weight="600" fill="#374151">
+<tspan x="1110.0" dy="0">(optionnel) routage / classification</tspan>
+<tspan x="1110.0" dy="19">script simple ou petit LLM</tspan>
+</text>
+<line x1="1110.0" y1="754" x2="1110.0" y2="820" stroke="#334155" stroke-width="2.6" marker-end="url(#arrowhead)"/>
+<rect x="830" y="962" width="560" height="76" rx="12" ry="12" fill="#d1fae5" stroke="#059669" stroke-width="2"/>
+<text x="1110.0" y="982.0" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15.5" font-weight="600" fill="#065f46">
+<tspan x="1110.0" dy="0">[OK] LLM génératif local</tspan>
+<tspan x="1110.0" dy="19">Phi-3 mini ou Gemma 2B</tspan>
+<tspan x="1110.0" dy="19">via Ollama</tspan>
+</text>
+<line x1="1110.0" y1="896" x2="1110.0" y2="962" stroke="#334155" stroke-width="2.6" marker-end="url(#arrowhead)"/>
+<rect x="830" y="1104" width="560" height="76" rx="12" ry="12" fill="#e5e7eb" stroke="#6b7280" stroke-width="2"/>
+<text x="1110.0" y="1133.5" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15.5" font-weight="600" fill="#374151">
+<tspan x="1110.0" dy="0">[!] Pas de Trust Layer natif</tspan>
+<tspan x="1110.0" dy="19">masquage PII à coder soi-même</tspan>
+</text>
+<line x1="1110.0" y1="1038" x2="1110.0" y2="1104" stroke="#334155" stroke-width="2.6" marker-end="url(#arrowhead)"/>
+<rect x="830" y="1246" width="560" height="76" rx="12" ry="12" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
+<text x="1110.0" y="1285.0" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15.5" font-weight="600" fill="#1f2937">
+<tspan x="1110.0" dy="0">Réponse finale</tspan>
+</text>
+<line x1="1110.0" y1="1180" x2="1110.0" y2="1246" stroke="#334155" stroke-width="2.6" marker-end="url(#arrowhead)"/>
+<rect x="10" y="519.0" width="180" height="110" rx="12" ry="12" fill="#f1f5f9" stroke="#64748b" stroke-width="2" stroke-dasharray="6,4"/>
+<text x="100.0" y="551.0" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="600" fill="#334155">
+<tspan x="100.0" dy="0">CRM + emails + PDFs</tspan>
+<tspan x="100.0" dy="16">+ transcripts</tspan>
+<tspan x="100.0" dy="16">déjà chunkés et</tspan>
+<tspan x="100.0" dy="16">vectorisés</tspan>
+</text>
+<rect x="1410" y="519.0" width="180" height="110" rx="12" ry="12" fill="#f1f5f9" stroke="#64748b" stroke-width="2" stroke-dasharray="6,4"/>
+<text x="1500.0" y="559.0" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="600" fill="#334155">
+<tspan x="1500.0" dy="0">Documents locaux</tspan>
+<tspan x="1500.0" dy="16">déjà chunkés et</tspan>
+<tspan x="1500.0" dy="16">vectorisés</tspan>
+</text>
+<line x1="190" y1="574.0" x2="210" y2="574.0" stroke="#334155" stroke-width="2.6" stroke-dasharray="7,6" marker-end="url(#arrowhead)"/>
+<line x1="1410" y1="574.0" x2="1390" y2="574.0" stroke="#334155" stroke-width="2.6" stroke-dasharray="7,6" marker-end="url(#arrowhead)"/>
+<rect x="10" y="1352" width="1600" height="120" rx="10" ry="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="810.0" y="1378.0" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#0f172a">
+<tspan x="810.0" dy="0">LÉGENDE</tspan>
+</text>
+<rect x="40" y="1398" width="26" height="26" rx="5" ry="5" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+<text x="76" y="1417" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="500" fill="#1f2937">Inconnu / non documenté publiquement</text>
+<rect x="600" y="1398" width="26" height="26" rx="5" ry="5" fill="#d1fae5" stroke="#059669" stroke-width="2"/>
+<text x="636" y="1417" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="500" fill="#1f2937">Connu / documenté, ou équivalent open source clair</text>
+<rect x="1120" y="1398" width="26" height="26" rx="5" ry="5" fill="#e5e7eb" stroke="#6b7280" stroke-width="2"/>
+<text x="1156" y="1417" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="500" fill="#1f2937">Optionnel / différence d'architecture entre les deux stacks</text>
+<text x="810.0" y="1452" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" font-style="italic" fill="#64748b">Salesforce : 3 modèles en jeu (embedding + Atlas + LLM final) — Stack locale : généralement 2 (embedding + LLM final)</text>
+</svg>
